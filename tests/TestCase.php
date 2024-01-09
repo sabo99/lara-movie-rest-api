@@ -9,3 +9,5 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication, RefreshDatabase;
 }
+
+uses(TestCase::class, RefreshDatabase::class)->in('Feature');

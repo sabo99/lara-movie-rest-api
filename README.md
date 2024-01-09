@@ -51,6 +51,14 @@
     Your site is automatically redirect to http://127.0.0.1:8000/api/movies <br>
     Your api is now running at http://127.0.0.1:8000/api/movies
 
-6. **Learn more**
+6. **Running Unit Test**
+
+    ```shell
+    php artisan test
+    ```
+
+    Your test is now running
+
+7. **Learn more**
 
     -   [Laravel Documentation](https://laravel.com/docs/10.x/)

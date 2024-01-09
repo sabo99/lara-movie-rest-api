@@ -10,7 +10,7 @@ class UpdateMovieAction
     public function handle(string $id, Request $request): array
     {
         $data = Movie::query()
-            ->find($id);
+            ->findOrFail($id);
 
         $data
             ->update([

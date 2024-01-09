@@ -8,7 +8,7 @@ class ShowMovieAction
 {
     public function handle(string $id): array
     {
-        $data = Movie::query()->find($id);
+        $data = Movie::query()->findOrFail($id);
 
         return [
             'payload' => [
