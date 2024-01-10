@@ -22,9 +22,9 @@ class MovieController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * @throws \Throwable
      */
-    public function index(ListMovieAction $action): JsonResponse
+    public function index(Request $request, ListMovieAction $action): JsonResponse
     {
-        $result = $action->handle();
+        $result = $action->handle($request);
 
         return $this->responseJSON($result['payload'], $result['status'] ?? null, $result['throw'] ?? null);
     }

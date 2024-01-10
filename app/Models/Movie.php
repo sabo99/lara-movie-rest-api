@@ -12,9 +12,16 @@ class Movie extends Model
     protected $table = 'movies';
     protected $guarded = [];
     protected $casts = [
-        'rating' => 'float',
+        'rating'     => 'float',
         'created_at' => 'datetime:Y-m-d H:i:s',
-        'updated_at' => 'datetime:Y-m-d H:i:s'
+        'updated_at' => 'datetime:Y-m-d H:i:s',
     ];
+
+    public function scopeSearch($query, $value)
+    {
+        return $query->where('title', 'like', '%' . $value . '%')
+            ->orWhere('description', 'like', '%' . $value . '%')
+            ->orWhere('rating', 'like', '%' . $value . '%');
+    }
 
 }

@@ -3,12 +3,17 @@
 namespace App\Actions\Controllers;
 
 use App\Models\Movie;
+use Illuminate\Http\Request;
 
 class ListMovieAction
 {
-    public function handle(): array
+    public function handle(Request $request): array
     {
-        $data = Movie::all();
+        $query = $request->query('query');
+
+        $data = Movie::query()
+            ->search($query)
+            ->get();
 
         return [
             'payload' => [
